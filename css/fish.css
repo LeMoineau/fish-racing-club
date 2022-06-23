@@ -1,0 +1,65 @@
+
+#fish-wheel {
+    width: calc(var(--fish-wheel-diameter));
+    height: calc(var(--fish-wheel-diameter));
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+}
+
+.fish {
+    position: absolute;
+    width: var(--fish-wheel-diameter);
+    height: var(--fish-img-size);
+    transition: transform 0.1s linear;
+}
+
+.fish img {
+    width: var(--fish-img-size);
+    background-size: contain;
+    transform: rotateZ(90deg);
+}
+
+.fish-plat {
+    background-color: var(--fish-plat-color);
+    border-radius: 100%;
+    transform: rotateX(72deg);
+    width: var(--fish-plat-size);
+    height: var(--fish-plat-size);
+}
+
+.on-plat-fish {
+    width: 75px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    transform: translate(0);
+    margin-right: var(--space-between-plat-fish);
+}
+
+#aquarium-panel > .on-plat-fish:nth-child(3n) {
+    margin-right: 0;
+}
+
+.on-plat-fish .fish {
+    width: inherit;
+    background-size: contain;
+    z-index: 3;
+    bottom: 30px;
+}
+
+.grabable-on-plat-fish[grabbed="true"] {
+    transform: initial;
+}
+
+.grabable-on-plat-fish[grabbed="true"] img {
+    pointer-events: none;
+}
+
+.grabable-on-plat-fish {
+    cursor: pointer;
+}

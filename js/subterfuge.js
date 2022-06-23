@@ -37,3 +37,7 @@ for (let exit of document.getElementsByClassName('exit-iframe')) {
         toggleIFrame();
     })
 }
+
+iframe.addEventListener('load', () => {
+    GAME.gameContainer.setAttribute("hide", "false")
+})
