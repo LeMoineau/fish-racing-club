@@ -23,6 +23,7 @@ a {
     --fish-img-size: 50px;
     --fish-plat-color: var(--dark-grey);
     --fish-plat-size: 70px;
+    --space-between-plat-fish: 40px;
     /* SHOP VARS */
     --card-shop-size: 80px;
     --card-shop-margin: 20px;
@@ -34,6 +35,7 @@ a {
     --zipet-margin-top: 5px;
     --zipet-edging: 10px;
     --panel-shadow: -1px 0px 4px rgba(0, 0, 0, 0.25);
+    --panel-padd: 20px;
     /* SUBTERFUGE */
     --exit-button-size: 50px;
     /* COLORS */

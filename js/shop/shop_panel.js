@@ -11,6 +11,7 @@ class ShopPanel {
     }
 
     init() {
+        console.log("init for ", this.panelID);
         this.zipet.addEventListener('click', () => {
             this.shop.openShop();
             this.togglePanel();

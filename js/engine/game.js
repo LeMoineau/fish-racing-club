@@ -33,7 +33,7 @@ class Game {
      */
     addFish(fish) {
         this.fishs.push(fish)
-        this.fishWheelContainer.appendChild(fish.getDiv());
+        this.fishWheelContainer.appendChild(fish.div);
     }
 
     /**

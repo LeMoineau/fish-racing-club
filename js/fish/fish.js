@@ -3,39 +3,33 @@ FISH_ID_COMPTEUR = 0; // id creator for fishs
 
 class Fish {
 
-    constructor(name, rotSpe, moneyByRot, moneyToBuy, img) {
+    constructor(name, rotSpe, moneyByRot, img) {
         this.id = FISH_ID_COMPTEUR;
         this.name = name;
         this.rotSpe = rotSpe;
         this.moneyByRot = moneyByRot;
-        this.moneyToBuy = moneyToBuy;
         this.img = img;
         this.currentRot = 0;
         this.nbTour = 0;
 
         FISH_ID_COMPTEUR += 1;
+        this.init();
     }
 
-    /**
-     * Return a div discribing the current fish
-     * @returns {HTMLElement} a div describing the current fish
-     */
-    getDiv() {
-        let fishDiv = document.createElement("div");
+    init() {
+        this.div = document.createElement("div");
 
-        fishDiv.id = `fish-${this.id}`;
-        fishDiv.classList.add('fish');
-        fishDiv.classList.add(`fish-${this.name}`);
-        fishDiv.addEventListener('click', () => {
+        this.div.id = `fish-${this.id}`;
+        this.div.classList.add('fish');
+        this.div.classList.add(`fish-${this.name}`);
+        this.div.addEventListener('click', () => {
             this.onClick();
         });
-        fishDiv.style['z-index'] = enum_fish.findIndex(f => new f().name === this.name);
+        this.div.style['z-index'] = enum_fish.findIndex(f => f === this.type);
 
         let fishImg = document.createElement("img");
         fishImg.setAttribute("src", this.img);
-        fishDiv.appendChild(fishImg);
-
-        return fishDiv;
+        this.div.appendChild(fishImg);
     }
 
     /**
@@ -43,6 +37,10 @@ class Fish {
      */
     onClick() {
         console.log(`cliqué sur ${this.name} !`);
+    }
+
+    get type() {
+        return this.constructor;
     }
 
     /**
@@ -62,12 +60,12 @@ class Fish {
      * Render the current fish depending of its position
      */
     render() {
-        document.getElementById(`fish-${this.id}`).style["transform"] = `rotateZ(${this.currentRot}deg)`;
-        if (this.currentRot % 360 >= 0 && this.currentRot % 360 <= 180) {
-            document.querySelector(`#fish-${this.id} img`).style['transform'] = `rotateZ(90deg) rotateX(180deg)`;
-        } else {
-            document.querySelector(`#fish-${this.id} img`).style['transform'] = `rotateZ(90deg) rotateX(0deg)`;
-        }
+        this.div.style["transform"] = `rotateZ(${this.currentRot}deg)`;
+        // if (this.currentRot % 360 >= 0 && this.currentRot % 360 <= 180) {
+        //     this.div.style['transform'] += ` rotateX(180deg)`;
+        // } else {
+        //     this.div.style['transform'] += ` rotateX(0deg)`;
+        // }
     }
 
 }

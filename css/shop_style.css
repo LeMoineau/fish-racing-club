@@ -1,5 +1,9 @@
 
 #fish-shop {
+    position: fixed;
+    top: 0;
+    right: 0;
+    overflow: hidden auto;
     height: 100%;
     background-color: transparent;
     display: flex;
@@ -25,6 +29,14 @@
     height: 100%;
     background-color: var(--panel-color);
     box-shadow: var(--panel-shadow);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+    align-content: flex-start;
+    flex-wrap: wrap;
+    padding: var(--panel-padd);
+    box-sizing: border-box;
 }
 
 .panel[state="close"] {

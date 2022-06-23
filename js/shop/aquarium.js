@@ -19,11 +19,14 @@ class Aquarium extends ShopPanel {
         }
         let test = new PoissonRouge();
         this.panel.appendChild(new GrabableOnPlatFish(test).div)
+        this.panel.appendChild(new GrabableOnPlatFish(test).div)
     }
 
     initController() {
         
     }
 
-    
-}
+    render() {
+        
+    }
+} 

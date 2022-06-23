@@ -25,7 +25,17 @@ class OnPlatFish {
         this.div.appendChild(this.plat.div);
     }
 
-    getDiv() {
+    removeFishFromPlat() {
+        this.fish = null;
+        this.div.removeChild(this.fishDiv);
+        this.fishDiv = null;
+    }
 
+    addFishOnPlat(fish) {
+        this.fish = fish;
+        this.fishDiv = document.createElement("img");
+        this.fishDiv.classList.add("fish");
+        this.fishDiv.setAttribute("src", this.fish.img);
+        this.div.appendChild(this.fishDiv);
     }
 }

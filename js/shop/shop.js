@@ -45,17 +45,17 @@ class FishShop {
         this.openedPanel = panel;
     }
 
-    buy(fishType) {
-        let fish = new fishType();
-        if (this.game.money >= fish.moneyToBuy) {
-            this.game.addFish(fish);
-            this.game.removeMoney(fish.moneyToBuy);
-        }
+    removeFish(fish) {
+
+    }
+
+    addFish(fish) {
+
     }
 
     render() {
         if (this.openedPanel !== null) {
-            //this.openedPanel.render();
+            this.openedPanel.render();
         }
     }
 
