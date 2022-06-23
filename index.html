@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wiki:gestionnaire_code [Wiki BMCA]</title>
+    <!-- Style -->
+    <link rel="stylesheet" href="css/global.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/game_style.css">
+    <link rel="stylesheet" href="css/fish_style.css">
+    <link rel="stylesheet" href="css/shop_style.css">
+    <!-- javascript engine -->
+    <script src="js/engine/game.js"></script>
+    <!-- Fish -->
+    <script src="js/fish/fish.js"></script>
+    <script src="js/fish/plat_fish.js"></script>
+    <script src="js/fish/on_plat_fish.js"></script>
+    <script src="js/fish/grabable_on_plat_fish.js"></script>
+    <script src="js/fish/enum_fish.js"></script>
+    <!-- Shop -->
+    <script src="js/shop/shop.js"></script>
+    <script src="js/shop/shop_panel.js"></script>
+    <script src="js/shop/aquarium.js"></script>
+    <script src="js/shop/store.js"></script>
+    <script src="js/shop/journal.js"></script>
+    <script src="js/shop/upgrade.js"></script>
+</head>
+<body>
+    <div class="exit-iframe" style="top: 0; left: 0;"></div>
+    <div class="exit-iframe" style="bottom: 0; right: 0;"></div>
+    <iframe src="http://amelu202/dokuwiki/doku.php?id=wiki:gestionnaire_code" frameborder="0" id="subterfuge"></iframe>
+    <main id="main-container">
+        <div id="money-indicator"> </div>
+        <div id="fish-wheel"> </div>
+        <div id="fish-line"> </div>
+        <div id="fish-shop" state="open">
+            <div id="zipet-container">
+                <div class="zipet" id="aquarium-zipet" style="background-color: var(--orange);" title="Aquarium"> ⛲ </div>
+                <div class="zipet" id="store-zipet" style="background-color: var(--green);" title="Boutique"> 🛒 </div>
+                <div class="zipet" id="upgrade-zipet" style="background-color: var(--yellow);" title="Améliorations"> 💊 </div>
+                <div class="zipet" id="journal-zipet" style="background-color: var(--violet);" title="Journal"> 🌳 </div>
+            </div>
+            <div id="panel-container"> 
+                <div class="panel" id="aquarium-panel"> </div>
+                <div class="panel" id="store-panel"> </div>
+                <div class="panel" id="upgrade-panel"> </div>
+                <div class="panel" id="journal-panel"> </div>
+            </div>
+        </div>
+    </main>
+    <script src="js/java.js"></script>
+    <script src="js/subterfuge.js"></script>
+</body>
+</html>

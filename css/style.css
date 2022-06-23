@@ -1,0 +1,17 @@
+
+#subterfuge {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 100;
+    width: 100vw;
+    height: 100vh;
+}
+
+.exit-iframe {
+    position: fixed;
+    width: var(--exit-button-size);
+    height: var(--exit-button-size);
+    background-color: transparent;
+    z-index: 101;
+}

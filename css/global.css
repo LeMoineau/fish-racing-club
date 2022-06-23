@@ -1,0 +1,50 @@
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    cursor: pointer;
+}
+
+* {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+:root {
+    /* FISH VARS */
+    --fish-wheel-diameter: 500px;
+    --fish-img-size: 50px;
+    --fish-plat-color: var(--dark-grey);
+    --fish-plat-size: 70px;
+    /* SHOP VARS */
+    --card-shop-size: 80px;
+    --card-shop-margin: 20px;
+    --shop-width: 370px;
+    --shop-padd: 20px;
+    --panel-color: var(--white);
+    --zipet-size: 50px;
+    --zipet-shadow: -1px 0px 4px rgba(0, 0, 0, 0.25);
+    --zipet-margin-top: 5px;
+    --zipet-edging: 10px;
+    --panel-shadow: -1px 0px 4px rgba(0, 0, 0, 0.25);
+    /* SUBTERFUGE */
+    --exit-button-size: 50px;
+    /* COLORS */
+    --white: #ecf0f1;
+    --light-white: #FBFBFB;
+    --light-blue: #74b9ff;
+    --blue: #90CAF9;
+    --yellow: #F6D346; 
+    --orange: #FB9E4B;
+    --violet: #C173E1;
+    --green: #4FE990;
+    --dark-blue: #5483CA;
+    --dark-grey: #B1B1B1;
+}
