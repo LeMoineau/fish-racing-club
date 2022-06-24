@@ -1,14 +1,22 @@
 
+/**
+ * Aquarium panel containing all the fish of the player. 
+ * Fusion are made in this page
+ */
 class Aquarium extends ShopPanel {
     constructor(shop) {
         super(shop, "aquarium-zipet", "aquarium-panel");
         this.selectedFish = null;
         this.plats = [];
         this.lastChangeRegisteredID = -1;
+        this.trash = new TrashPlat();
 
         this.initPlats();
     }
 
+    /**
+     * Initialize platforms in the aquarium
+     */
     initPlats() {
         for (let i = 0; i<this.shop.game.inv.size; i++) {
             this.addNewPlat();
@@ -19,18 +27,29 @@ class Aquarium extends ShopPanel {
                 plat.addFishOnPlat(f);
             }
         }
+        this.panel.appendChild(this.trash.div);
     }
 
+    /**
+     * Add a new empty platform in the aquarium
+     */
     addNewPlat() {
-        let plat = new GrabableOnPlatFish();
+        let plat = new GrabableOnFishPlat();
         this.panel.appendChild(plat.div);
         this.plats.push(plat);
     }
 
+    /**
+     * Get an empty platform in the aquarium if one is empty
+     */
     getEmptyPlat() {
         return this.plats.find(p => p.fish === null);
     }
 
+    /**
+     * Render the current aquarium page depending of game change by synchronise him to 
+     * player inventory
+     */
     render() {
         if (GAME.lastChange.id !== this.lastChangeRegisteredID) {
             // Remove previous fish (deleted from fusion or selling)
@@ -56,5 +75,6 @@ class Aquarium extends ShopPanel {
             }
             this.lastChangeRegisteredID = GAME.lastChange.id;
         }
+        this.trash.render();
     }
 } 

@@ -28,6 +28,12 @@ class Game {
         this.updateMoneyIndicator();
     }
  
+    /**
+     * Declare a new changement for the rest of the components (including shop panels)
+     * @param {string} topic topic of the changement
+     * @param {string} message message describing the changement
+     * @param {dict} data data needed with the changement
+     */
     newChangement(topic, message="", data={}) {
         this.lastChange = new Change(topic, message, data);
     }
@@ -44,6 +50,10 @@ class Game {
         }
     }
 
+    /**
+     * Remove a fish properly through the game
+     * @param {Fish} fish fish to remove from the game
+     */
     removeFish(fish) {
         this.inv.removeFish(fish);
         this.fishWheelContainer.removeChild(fish.div);

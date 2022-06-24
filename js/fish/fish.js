@@ -1,8 +1,11 @@
 
 FISH_ID_COMPTEUR = 0; // id creator for fishs
 
+/**
+ * Structure class of a fish in the game containing all informations of a fish and its deplacement
+ * in the game wheel
+ */
 class Fish {
-
     constructor(name, rotSpe, moneyByRot, img) {
         this.id = FISH_ID_COMPTEUR;
         this.name = name;
@@ -16,6 +19,9 @@ class Fish {
         this.init();
     }
 
+    /**
+     * Initialize the fish including its texture (img) and its events
+     */
     init() {
         this.div = document.createElement("div");
 
@@ -39,10 +45,16 @@ class Fish {
         console.log(`cliqué sur ${this.name} !`);
     }
 
+    /**
+     * Return the current type of the fish
+     */
     get type() {
         return this.constructor;
     }
 
+    /**
+     * Return a display name for the current fish
+     */
     get toString() {
         return `${this.name}#${this.id}`;
     }

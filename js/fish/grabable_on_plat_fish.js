@@ -6,12 +6,7 @@ let SHIFT_GRABBED = null;
  * Fish on plat grabbable. The fish place on the plat can be transport to others 
  * and fusion with other fish
  */
-class GrabableOnPlatFish extends OnPlatFish {
-
-    /**
-     * Constructor
-     * @param {Fish} fish 
-     */
+class GrabableOnFishPlat extends OnFishPlat {
     constructor(fish) {
         super(fish);
         this.grabbed = false;
@@ -21,7 +16,7 @@ class GrabableOnPlatFish extends OnPlatFish {
     }
 
     /**
-     * Adding html attributes specific to [GrabableOnPlatFish]
+     * Adding html attributes specific to [GrabableOnFishPlat]
      */
     initRender() {
         this.div.classList.add("grabable-on-plat-fish");
@@ -118,7 +113,7 @@ class GrabableOnPlatFish extends OnPlatFish {
 
     /**
      * Adding a fish on the current grabbable plat 
-     * (adding mouse down event to begin grab more than [OnPlatFish.addFishOnPlat()])
+     * (adding mouse down event to begin grab more than [OnFishPlat.addFishOnPlat()])
      * @param {Fish} fish 
      */
     addFishOnPlat(fish) {

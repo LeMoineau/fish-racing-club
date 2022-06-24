@@ -6,6 +6,9 @@ CHANGE_TOPICS = {
     FUSION_FISH: 2,
 }
 
+/**
+ * Class describing changement among the game and used to alert need of update in rendering
+ */
 class Change {
     constructor(topic, message="", data={}) {
         this.id = CHANGE_ID_COMPTEUR;

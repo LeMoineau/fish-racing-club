@@ -21,7 +21,7 @@ a {
     /* FISH VARS */
     --fish-wheel-diameter: 500px;
     --fish-img-size: 50px;
-    --fish-plat-color: var(--dark-grey);
+    --fish-plat-color: rgba(177, 177, 177, 0.8);
     --fish-plat-size: 70px;
     --space-between-plat-fish: 40px;
     /* SHOP VARS */
@@ -48,7 +48,8 @@ a {
     --violet: #C173E1;
     --green: #4FE990;
     --dark-blue: #5483CA;
-    --dark-grey: #B1B1B1;
+    --dark-grey: rgb(177, 177, 177);
     --darker-blue: #1E57AD;
     --grey: #515151;
+    --red: #f44336;
 }

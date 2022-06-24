@@ -1,4 +1,7 @@
 
+/**
+ * Item contains in the store to buy discovered fishs
+ */
 class StoreItem {
     constructor(fish, store) {
         this.fish = fish;
@@ -7,6 +10,9 @@ class StoreItem {
         this.init();
     }
 
+    /**
+     * Initialize a store item on html, adding event and make it hided
+     */
     init() {
         this.div = document.createElement("div");
         this.div.classList.add("store-item");
@@ -43,10 +49,13 @@ class StoreItem {
         this.div.appendChild(infos);
         this.div.appendChild(this.buyButton);
 
-        // to not spoil on loading
+        // to not spoil next fishs on loading
         this.setState("hide");
     }
 
+    /**
+     * Call the store to buy a fish
+     */
     buy() {
         this.store.buy(this.fish.type);
     }
@@ -59,6 +68,9 @@ class StoreItem {
         this.div.setAttribute("state", state);
     }
 
+    /**
+     * Render the current store item by updating its price
+     */
     render() {
         this.buyButton.textContent = `${this.store.getPriceOf(this.fish.type)}$`;
     }

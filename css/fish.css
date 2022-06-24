@@ -30,6 +30,14 @@
     height: var(--fish-plat-size);
 }
 
+.trash[trash-open="false"] {
+    opacity: 0.5;
+}
+
+.trash .fish-plat {
+    background-color: var(--red);
+}
+
 .on-plat-fish {
     width: 75px;
     height: 80px;
@@ -52,13 +60,12 @@
     bottom: 30px;
 }
 
-/* .grabable-on-plat-fish[grabbed="true"] {
-    transform: none;
-} */
+.grabable-on-plat-fish[grabbed="true"] {
+    z-index: 4;
+}
 
 .grabable-on-plat-fish[grabbed="true"] img {
     pointer-events: none;
-    z-index: 4;
 }
 
 .grabable-on-plat-fish {

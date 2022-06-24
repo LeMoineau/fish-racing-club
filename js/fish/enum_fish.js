@@ -1,5 +1,10 @@
 
-// constructor(name, rotSpe, moneyByRot, moneyToBuy, img);
+/**
+ * Initialization of all the different existing fish in the game
+ * 
+ * Reminder:
+ * - Fish: constructor(name, rotSpe, moneyByRot, moneyToBuy, img);
+ */
 
 class PoissonRouge extends Fish {
     constructor() {
