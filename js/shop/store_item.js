@@ -11,9 +11,13 @@ class StoreItem {
         this.div = document.createElement("div");
         this.div.classList.add("store-item");
 
+        let imgContainer = document.createElement("div");
+        imgContainer.classList.add("store-item-img-container");
+
         let img = document.createElement("img");
         img.setAttribute("src", this.fish.img);
         img.classList.add("store-item-img");
+        imgContainer.appendChild(img);
 
         let infos = document.createElement("div");
         infos.classList.add("store-item-infos-container");
@@ -23,7 +27,7 @@ class StoreItem {
         title.classList.add("store-item-infos-title");
         infos.appendChild(title);
     
-        let description = document.createElement("p");
+        let description = document.createElement("pre");
         description.textContent = `${this.fish.moneyByRot}$ par tour\n${this.fish.rotSpe * 10}° par seconde`;
         description.classList.add("store-item-infos-p");
         infos.appendChild(description);
@@ -35,9 +39,12 @@ class StoreItem {
             this.buy();
         })
 
-        this.div.appendChild(img);
-        this.div.appendChild(description);
+        this.div.appendChild(imgContainer);
+        this.div.appendChild(infos);
         this.div.appendChild(this.buyButton);
+
+        // to not spoil on loading
+        this.setState("hide");
     }
 
     buy() {

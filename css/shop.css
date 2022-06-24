@@ -3,7 +3,6 @@
     position: fixed;
     top: 0;
     right: 0;
-    overflow: hidden auto;
     height: 100%;
     background-color: transparent;
     display: flex;

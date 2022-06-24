@@ -1,13 +1,22 @@
 
+INITIAL_INVENTORY_SIZE = 5;
+
 class FishInventory {
     constructor(game) {
         this.game = game;
         this.shop = game.shop;
         this.fishs = [];
+        this.size = INITIAL_INVENTORY_SIZE;
+    }
+
+    get canAddFish() {
+        return this.fishs.length < this.size;
     }
 
     addFish(fish) {
-        this.fishs.push(fish);
+        if (this.canAddFish) {
+            this.fishs.push(fish);
+        }
     }
 
     removeFish(fish) {

@@ -43,6 +43,10 @@ class Fish {
         return this.constructor;
     }
 
+    get toString() {
+        return `${this.name}#${this.id}`;
+    }
+
     /**
      * Update the current state of the fish including moving
      * @returns {bool} has made a new turn or not

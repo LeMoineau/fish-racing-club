@@ -1,6 +1,6 @@
 
 #main-container {    
-    background-color: #c3fdff;
+    background-color: var(--blue);
     width: 100vw;
     height: 100vh;
     display: flex;

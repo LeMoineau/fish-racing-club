@@ -1,6 +1,7 @@
 
 FUSION_TABLE = [
-    { terms: [PoissonRouge, PoissonRouge], result: PoissonClown }
+    { terms: [PoissonRouge, PoissonRouge], result: PoissonClown },
+    { terms: [PoissonClown, PoissonClown], result: PoissonSquelette }
 ]
 
 function fusion(fish1, fish2) {

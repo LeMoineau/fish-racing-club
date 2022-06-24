@@ -43,6 +43,12 @@ class GrabableOnPlatFish extends OnPlatFish {
         })
     }
 
+    /**
+     * The current grabbable fish receive a fish (by mouseUpEvent) and perform following actions:
+     * - deplacements between 2 plats
+     * - fusion with 2 fishs
+     * - new discovery
+     */
     receiveFish() {
         if (CURRENTLY_GRABBED_FISH != null) {
             if (CURRENTLY_GRABBED_FISH.id !== this.id) {
@@ -54,10 +60,13 @@ class GrabableOnPlatFish extends OnPlatFish {
                     // make fusion
                     let newFish = fusion(this.fish, CURRENTLY_GRABBED_FISH.fish);
                     if (newFish !== null) {
-                        // remove and adding new Fish to plats
+                        // removing and adding new Fish on plats and Game
+                        GAME.removeFish(this.fish);
                         this.removeFishFromPlat();
+                        GAME.removeFish(CURRENTLY_GRABBED_FISH.fish);
                         CURRENTLY_GRABBED_FISH.removeFishFromPlat();
                         this.addFishOnPlat(newFish);
+                        GAME.addFish(newFish);
                         // new discovery
                         if (!FISH_DISCOVERED.includes(newFish.type.name)) {
                             GAME.shop.store.newDiscovery(newFish);
@@ -75,8 +84,12 @@ class GrabableOnPlatFish extends OnPlatFish {
      * @param {MouseDownEvent} event 
      */
     beginGrab(event) {
-        this.fishDiv.style.left = `${event.clientX - event.offsetX}px`;
-        this.fishDiv.style.top = `${event.clientY - event.offsetY}px`;
+        if (SHIFT_GRABBED === null) {
+            let parentRect = this.div.getBoundingClientRect();
+            SHIFT_GRABBED = [parentRect.left + event.offsetX, parentRect.top + event.offsetY];
+        }
+        this.fishDiv.style.left = `${event.clientX - SHIFT_GRABBED[0]}px`;
+        this.fishDiv.style.top = `${event.clientY - SHIFT_GRABBED[1]}px`;
         this.setGrabbed(true);
         document.body.addEventListener('mousemove', grab);
         document.body.addEventListener('mouseup', endGrab);
@@ -121,9 +134,6 @@ class GrabableOnPlatFish extends OnPlatFish {
  * @param {MouseMoveEvent} event 
  */
 function grab(event) {
-    if (SHIFT_GRABBED === null) {
-        SHIFT_GRABBED = [event.offsetX, event.offsetY];
-    }
     if (CURRENTLY_GRABBED_FISH !== null) {
         CURRENTLY_GRABBED_FISH.fishDiv.style.left = `${event.clientX - SHIFT_GRABBED[0]}px`;
         CURRENTLY_GRABBED_FISH.fishDiv.style.top = `${event.clientY - SHIFT_GRABBED[1]}px`;

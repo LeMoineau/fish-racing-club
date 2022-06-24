@@ -25,6 +25,10 @@ class OnPlatFish {
         this.div.appendChild(this.plat.div);
     }
 
+    get isEmpty() {
+        return this.fish === null;
+    }
+
     removeFishFromPlat() {
         this.fish = null;
         this.div.removeChild(this.fishDiv);

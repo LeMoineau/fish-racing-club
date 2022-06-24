@@ -10,12 +10,13 @@ class Game {
 
     constructor() {
         this.money = 10;
-        this.fishs = [];
+        this.inv = new FishInventory(this);
         this.gameName = "Fish Ranch";
         this.gameContainer = document.getElementById(this._GAME_CONTAINER_ID);
         this.fishWheelContainer = document.getElementById(this._FISH_WHEEL_ID);
         this.moneyIndicator = document.getElementById(this._MONEY_INDICATOR_ID);
         this.shop = new FishShop(this);
+        this.lastChange = {};
         
         this.init();
     }
@@ -27,13 +28,26 @@ class Game {
         this.updateMoneyIndicator();
     }
  
+    newChangement(topic, message="", data={}) {
+        this.lastChange = new Change(topic, message, data);
+    }
+
     /** 
      * Add a fish to the current fish wheel
      * @param {Fish} fish
      */
     addFish(fish) {
-        this.fishs.push(fish)
-        this.fishWheelContainer.appendChild(fish.div);
+        if (this.inv.canAddFish) {
+            this.inv.addFish(fish);
+            this.fishWheelContainer.appendChild(fish.div);
+            this.newChangement("adding fish", `${fish.toString} has been added to inventory`);
+        }
+    }
+
+    removeFish(fish) {
+        this.inv.removeFish(fish);
+        this.fishWheelContainer.removeChild(fish.div);
+        this.newChangement("removing fish", `${fish.toString} has been removed from inventory`);
     }
 
     /**
@@ -88,7 +102,7 @@ class Game {
      * Update all entities of the game including fish
      */
     update() {
-        for (let f of this.fishs) {
+        for (let f of this.inv.fishs) {
             let newTour = f.update();
             if (newTour) {
                 this.addMoney(f.moneyByRot);
@@ -100,7 +114,7 @@ class Game {
      * Render all entities of the game including fish and shop
      */
     render() {
-        for (let f of this.fishs) {
+        for (let f of this.inv.fishs) {
             f.render();
         }
         this.shop.render();

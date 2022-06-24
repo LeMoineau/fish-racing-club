@@ -29,10 +29,12 @@ class Store extends ShopPanel {
 
     buy(fishType) {
         if (FISH_DISCOVERED.includes(fishType.name)) {
-            let fish = new fishType();
-            if (GAME.money >= this.getPriceOf(fishType)) {
-                GAME.addFish(fish);
-                GAME.removeMoney(this.getPriceOf(fish.type));
+            if (GAME.inv.canAddFish) {
+                let fish = new fishType();
+                if (GAME.money >= this.getPriceOf(fishType)) {
+                    GAME.addFish(fish);
+                    GAME.removeMoney(this.getPriceOf(fish.type));
+                }
             }
         }
     }
@@ -44,7 +46,7 @@ class Store extends ShopPanel {
     render() {
         for (let i of this.items) {
             if (FISH_DISCOVERED.includes(i.fish.type.name)) {
-                if (GAME.money >= this.getPriceOf(i.fish.type)) {
+                if (GAME.money >= this.getPriceOf(i.fish.type) && GAME.inv.canAddFish) {
                     i.setState("visible");
                 } else {
                     i.setState("transparent");
