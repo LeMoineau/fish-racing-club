@@ -135,7 +135,30 @@ class Game {
      * @returns {string} code describing the current game
      */
     getCode() {
-        return "" 
+        let ENCOUNTER = [
+            { "class": Game, "remplace": "Game.constructor" },
+            { "class": FishShop, "remplace": "FishShop.constructor" },
+            { "class": Store, "remplace": "Store.constructor" }
+        ]
+        let res = JSON.stringify(this, (k, v) => {
+            let target = ENCOUNTER.find(e => v instanceof e["class"]);
+            if (target !== undefined && target["encounter"] === true) {
+                return target["remplace"];
+            } else if (target !== undefined) {
+                target["encounter"] = true;
+            }
+            return v;
+        })
+        return myCipher(res);
+    }
+
+    /**
+     * Generate a Game object describing previous game
+     * @param {string} code code of the previous game
+     * @returns object of the previous game
+     */
+    generateFromCode(code) {
+        return JSON.parse(myDecipher(code));
     }
 
 }
